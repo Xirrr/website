@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- Link ke CSS khusus Anda -->
     <link rel="stylesheet" href="{{ asset('css/web.css') }}">
+    @yield('styles')
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -38,5 +39,9 @@
     </footer>
 
     <!-- Script untuk Bootstrap atau JS lainnya -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    @yield('scripts')
 </body>
 </html>

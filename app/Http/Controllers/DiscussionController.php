@@ -7,59 +7,36 @@ use Illuminate\Http\Request;
 
 class DiscussionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // Method untuk menampilkan daftar diskusi
     public function index()
     {
-        //
+        $discussions = Discussion::latest()->get();
+
+        return view('discussions.index', compact('discussions'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    // Method untuk menampilkan formulir tambah diskusi
     public function create()
     {
-        //
+        return view('discussions.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    // Method untuk menyimpan diskusi baru ke dalam database
     public function store(Request $request)
     {
-        //
-    }
+        // Validasi input
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Discussion $discussion)
-    {
-        //
-    }
+        // Simpan diskusi ke dalam database
+        $discussion = Discussion::create([
+            'title' => $request->title,
+            'content' => $request->content,
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Discussion $discussion)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Discussion $discussion)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Discussion $discussion)
-    {
-        //
+        // Redirect ke halaman detail diskusi yang baru ditambahkan
+        return redirect()->route('discussions.show', ['discussion' => $discussion->id]);
     }
 }

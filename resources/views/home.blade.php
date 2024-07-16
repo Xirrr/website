@@ -1,4 +1,6 @@
-@extends('app')
+@extends('layouts.app')
+
+@section('title', 'Home Page')
 
 @section('content')
     <div class="home-container">
@@ -10,13 +12,13 @@
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="image1.jpg" class="d-block w-100" alt="...">
+                        <img src="https://images.tokopedia.net/img/cache/700/VqbcmM/2023/2/4/0527e478-84f0-4040-904d-8ff95466b569.jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="image2.jpg" class="d-block w-100" alt="...">
+                        <img src="https://www.99.co/id/panduan/wp-content/uploads/2023/08/10145804/Apa-Itu-Furniture-Custom.jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="image3.jpg" class="d-block w-100" alt="...">
+                        <img src="https://events.rumah123.com/wp-content/uploads/sites/38/2022/07/15150132/Gambar-Furniture-Minimalis-Modern.jpg" class="d-block w-100" alt="...">
                     </div>
                 </div>
             </div>

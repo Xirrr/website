@@ -10,21 +10,20 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up()
-    {
-        Schema::create('discussions', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->text('content');
-            $table->timestamps();
-        });
-    }
-
+{
+    Schema::create('comments', function (Blueprint $table) {
+        $table->id();
+        $table->foreignId('discussion_id')->constrained()->onDelete('cascade');
+        $table->text('content');
+        $table->timestamps();
+    });
+}
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('discussions');
+        Schema::dropIfExists('comments');
     }
 };
